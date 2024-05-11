@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login form</title>
+    <link rel="stylesheet" href="login2.css" />
+  </head>
+
+  <body>
+    <div class="contact-container">
+      <div class="right">
+        <h1 class="title">Sign Into Account</h1>
+        <div class="form-container">
+          <form id="loginForm">
+            <div class="username">
+              <input
+                type="email"
+                class="user-input"
+                id="email"
+                placeholder="E-Mail"
+                required
+              />
+            </div>
+            <div class="password">
+              <input
+                type="password"
+                class="pass-input"
+                id="password"
+                placeholder="Password"
+                required
+                onkeydown="if (event.key === 'Enter') validateLogin()"
+              />
+            </div>
+            <div class="keepme">
+              <input type="checkbox" id="keepLoggedIn" checked="true" />
+              <label for="keepLoggedIn">Keep Me Logged In</label>
+            </div>
+            <button type="submit" onclick="return validateLogin()">Go !</button>
+            <a href="#" class="link">Forgot Password</a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function validateLogin() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Simple validation, you can replace it with your own validation logic
+        if (email === "goodellysushrut@gmail.com" && password === "password") {
+          if (document.getElementById("keepLoggedIn").checked) {
+            localStorage.setItem("loggedInUser", email);
+          } else {
+            localStorage.removeItem("loggedInUser");
+          }
+          // Redirect to index3.html
+          window.location.href = "home.html";
+          return false; // Prevent form submission
+        } else {
+          alert("Invalid email or password!");
+          return false; // Prevent form submission
+        }
+      }
+    </script>
+  </body>
+</html>

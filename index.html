@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Portal</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+          <h1>Community Connect</h1>
+        </div>
+    </header>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="./apts/img3.jpg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./apts/img4.jpg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./apts/img5.jpg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./apts/img6.jpg" style="width: 100%" />
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <main class="main-content">
+        <section class="about-us-section">
+            <h2>About Us</h2>
+            <p>Our project aims to develop a comprehensive web-based platform designed specifically for gated communities. This platform incorporates a range of essential functionalities to streamline community engagement and management processes. One of the core aspects of the system is the integration of robust user authentication and authorization mechanisms, ensuring secure access for residents and authorized personnel.</p>
+
+            <p><strong>Key features of our platform include:</strong></p>
+            <ul>
+                <li>Dynamic Community Communication Platform: Facilitating seamless interaction among residents, enabling effective communication and collaboration within the community.</li>
+                <li>User-Friendly Facility Booking System: Allowing residents to efficiently reserve amenities and facilities within the community.</li>
+                <li>Maintenance and Issue Reporting Module: Enabling swift resolution of community concerns by providing residents with a platform to report maintenance issues.</li>
+            </ul>
+
+            <p><strong>Additionally, our platform includes:</strong></p>
+            <ul>
+                <li>Comprehensive Community Directory: Providing residents with access to a directory of community members and resources.</li>
+                <li>Emergency Alert System: Ensuring rapid dissemination of critical information to residents during emergencies.</li>
+                <li>Marketplace: Facilitating convenient transactions among community members.</li>
+            </ul>
+
+            <p><strong>Moreover, our platform offers features such as:</strong></p>
+            <ul>
+                <li>Community Calendar: Keeping residents informed about upcoming events and activities within the community.</li>
+                <li>Polls and Surveys: Enabling residents to participate in community polls and surveys, fostering engagement and collaboration.</li>
+                <li>Resource Sharing: Allowing residents to share resources and information within the community.</li>
+            </ul>
+
+            <p>Furthermore, integration with payment gateways enables seamless payments and billing processes. A dedicated section for community news and updates keeps residents informed about the latest developments.</p>
+
+            <p>In conclusion, our web technology-based project aims to enhance community living by providing a centralized hub for communication, collaboration, and resource management. It represents a holistic solution catering to the diverse needs of gated communities, fostering connectivity, convenience, and community spirit.</p>
+            <button class="cta-button" onclick="redirectToMain()">LOGIN HERE</button>
+        </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Corporate Office:</h3>
+                <p>4th Floor, Sachin Corporate Building, Amrutha Valley Apartments, Road No. 12, Kokapet, Hyderabad, Telangana 500034.</p>
+                <p>Phone: +91 90191 00099, +91 82333 39999</p>
+                <p>Email: info@thesachingroup.com</p>
+                <div class="social-media">
+                    <a href="#"><img src="./logos/FacebookLogo.png" alt="Facebook"  width="30" height="30"></a>
+                    <a href="#"><img src="./logos/YoutubeLogo.png" alt="Twitter"  width="40" height="30"></a>
+                    <a href="#"><img src="./logos/TwitterLogo.png" alt="YouTube"  width="30" height="30"></a>
+                </div>
+                <p>&copy; 2024 Community Portal. All rights reserved.</p>
+            </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function redirectToMain() {
+            window.location.href = "login2.html";
+        }
+    </script>
+</body>
+</html>

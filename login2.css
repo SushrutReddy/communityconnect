@@ -1,0 +1,105 @@
+@import url("http://fonts.cdnfonts.com/css/sansation");
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.right {
+  width: 90%;
+  max-width: 360px;
+  height: 580px;
+  background: #ffffff;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.title {
+  font-family: Sansation;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  color: #5754dd;
+  padding-top: 30px;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 20px;
+  color: #85b6ff;
+  padding: 20px 10px 20px 5px;
+  border: 2px solid #568aee;
+  width: 280px;
+  height: 45px;
+  margin: 15px;
+  border-radius: 25px;
+  text-align: center;
+  font-family: "Scheherazade New", serif;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  font-weight: bold;
+  height: 18px;
+  width: 18px;
+}
+
+::placeholder {
+  color: #85b6ff;
+  font-size: 18px;
+}
+
+.keepme {
+  margin: 15px;
+  color: #71a1bd;
+  font-family: "Scheherazade New", serif;
+  font-weight: bold;
+}
+
+button {
+  width: 260px;
+  height: 45px;
+  font-family: "Sansation", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ffffff;
+  border: none;
+  background: rgba(135, 113, 224, 0.89);
+  border-radius: 25px;
+}
+
+.link {
+  text-align: center;
+  display: block;
+  margin: 18px;
+  color: #71a1bd;
+  font-family: "Scheherazade New", serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media only screen {
+  .contact-container {
+    background: linear-gradient(138.56deg, #6e90b0 23.44%, #e1d8db 89.5%);
+  }
+}
