@@ -1,0 +1,72 @@
+[
+  {
+    "name": "John Doe",
+    "email": "ne mail eyu ",
+    "password": "ne pass kuda",
+    "phone_no": "+1234567890",
+    "flat_no": "A1"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "password456",
+    "phone_no": "+1987654321",
+    "flat_no": "B2"
+  },
+  {
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "password": "password789",
+    "phone_no": "+1122334455",
+    "flat_no": "C3"
+  },
+  {
+    "name": "Bob Williams",
+    "email": "bob.williams@example.com",
+    "password": "passwordabc",
+    "phone_no": "+9988776655",
+    "flat_no": "D4"
+  },
+  {
+    "name": "Emily Brown",
+    "email": "emily.brown@example.com",
+    "password": "passworddef",
+    "phone_no": "+6655443322",
+    "flat_no": "E5"
+  },
+  {
+    "name": "Michael Davis",
+    "email": "michael.davis@example.com",
+    "password": "passwordghi",
+    "phone_no": "+7788990011",
+    "flat_no": "F6"
+  },
+  {
+    "name": "Sophia Miller",
+    "email": "sophia.miller@example.com",
+    "password": "passwordjkl",
+    "phone_no": "+4455667788",
+    "flat_no": "G7"
+  },
+  {
+    "name": "William Wilson",
+    "email": "william.wilson@example.com",
+    "password": "passwordmno",
+    "phone_no": "+2233445566",
+    "flat_no": "H8"
+  },
+  {
+    "name": "Olivia Taylor",
+    "email": "olivia.taylor@example.com",
+    "password": "passwordpqr",
+    "phone_no": "+8877665544",
+    "flat_no": "I9"
+  },
+  {
+    "name": "James Anderson",
+    "email": "james.anderson@example.com",
+    "password": "passwordstu",
+    "phone_no": "+5544332211",
+    "flat_no": "J10"
+  }
+]

@@ -87,6 +87,20 @@
         function redirectToMain() {
             window.location.href = "login2.html";
         }
+        async function fetchDataFromServer() {
+        try {
+          const response = await fetch("/data");
+          if (!response.ok) {
+            throw new Error("Failed to fetch data");
+          }
+          const data= await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+
+        }
+      }
+      fetchDataFromServer();
     </script>
 </body>
 </html>

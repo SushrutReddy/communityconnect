@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "date": "2024-05-15",
+    "message": "Water Supply Disruption: Water supply will be interrupted on 15th May 2024 from 10:00 am to 2:00 pm due to maintenance. Please store enough water for your needs."
+  },
+  {
+    "id": 2,
+    "date": "2024-05-16",
+    "message": "Power Outage: A power outage is expected on 16th May 2024 from 1:00 pm to 5:00 pm due to maintenance. Please stay informed and take necessary precautions."
+  },
+  {
+    "id": 3,
+    "date": "2024-05-18",
+    "message": "Road Closure: Road No. 12 will be closed for maintenance work on 18th May 2024 from 9:00 am to 4:00 pm. Please plan alternative routes."
+  }
+]

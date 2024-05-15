@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gated Community Website</title>
     <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="calender.css" />
+    <link rel="stylesheet" href="updates.css" />
   </head>
   <body>
     <header>
       <div class="container">
         <nav>
           <ul>
-            <li><a href="#aminities">Updates</a></li>
-            <li><a href="#properties">Calender</a></li>
+            <li><a href="#updates" onclick="scrollToUpdates()">Updates</a></li>
+            <li>
+              <a href="#calendar" onclick="scrollToCalendar()">Calendar</a>
+            </li>
             <li class="dropdown">
               <a href="#location">Payments</a>
               <ul class="dropdown-content">
@@ -21,8 +25,8 @@
                 <li><a href="payment.html">Maintenance Bill</a></li>
               </ul>
             </li>
-            <li><a href="#contact">Polls and Surveys</a></li>
-            <li><a href="#daddss">Personal Info</a></li>
+            <li><a href="#polls">Polls and Surveys</a></li>
+            <li><a href="#" id="personal-info-btn">Personal Info</a></li>
           </ul>
         </nav>
       </div>
@@ -38,24 +42,42 @@
         <a href="#contact" class="btn" id="contact-btn">Contact Us</a>
       </div>
     </section>
-
     <section class="section" id="emergency-alerts">
       <div class="container">
         <h2>Emergency Alerts</h2>
-        <ul>
-          <li>
-            **Water Supply Disruption:** Water supply will be interrupted on
-            01-01-2024 from 11:00 am to 4:00 pm due to maintenance. Please store
-            enough water for your needs.
-          </li>
-          <li>
-            **Power Outage:** A power outage is expected on 02-01-2024 from 2:00
-            pm to 6:00 pm due to some issues with the transformers. Please stay
-            informed and take necessary precautions.
-          </li>
-        </ul>
+        <div id="emergency-alerts-content">
+          <!-- Alerts will be dynamically generated here -->
+        </div>
       </div>
     </section>
+    <section class="section" id="updates">
+      <div class="container">
+        <h2>Updates</h2>
+        <div id="updates-content">
+          <!-- Updates will be dynamically generated here -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calendar">
+      <div class="container">
+        <h2>CALENDAR</h2>
+        <div id="calendar-content">
+          <!-- Table will be dynamically generated here -->
+        </div>
+      </div>
+    </section>
+
+    <div id="personal-info-popup" class="popup">
+      <h2>Personal Information</h2>
+      <ul>
+        <li id="user-name"></li>
+        <li id="user-email"></li>
+        <li id="user-phone"></li>
+        <li id="user-address"></li>
+      </ul>
+      <button id="close-popup">Close</button>
+    </div>
 
     <section class="section" id="achievements">
       <div class="container">
@@ -127,5 +149,153 @@
     </footer>
 
     <script src="contactusscroll.js"></script>
+
+    <script>
+      async function loadCalendar() {
+        try {
+          const response = await fetch("/calender");
+          const data = await response.json();
+
+          const calendarContent = document.getElementById("calendar-content");
+          calendarContent.innerHTML = ""; // Clear previous content
+
+          // Create the table element
+          const table = document.createElement("table");
+          table.classList.add("calendar-table");
+
+          // Create table headers
+          const tableHeader = `
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Occasion</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+    `;
+          table.innerHTML += tableHeader;
+
+          // Create table body
+          const tableBody = document.createElement("tbody");
+          data.forEach((item) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+  <td>${item.date}</td>
+  <td>${item.occasion}</td>
+  <td>${item.time}</td>
+`;
+            tableBody.appendChild(row);
+          });
+          table.appendChild(tableBody);
+
+          calendarContent.appendChild(table);
+        } catch (error) {
+          console.error("Error fetching calendar data:", error);
+        }
+      }
+
+      function scrollToCalendar() {
+        const calendarSection = document.getElementById("calendar");
+        calendarSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Add a function to fetch updates data and populate the updates section
+      async function loadUpdates() {
+        try {
+          const response = await fetch("/updates"); // Replace "/updates" with your backend route
+          const data = await response.json();
+
+          const updatesContent = document.getElementById("updates-content");
+          updatesContent.innerHTML = ""; // Clear previous content
+
+          data.forEach((update) => {
+            const updateItem = document.createElement("div");
+            updateItem.classList.add("update-item");
+            updateItem.innerHTML = `
+        <h3>${update.title}</h3>
+        <p>${update.description}</p>
+      `;
+            updatesContent.appendChild(updateItem);
+          });
+        } catch (error) {
+          console.error("Error fetching updates:", error);
+        }
+      }
+
+      function scrollToUpdates() {
+        const updateSection = document.getElementById("updates");
+        updateSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      async function loadEmergencyAlerts() {
+        try {
+          const response = await fetch("/emergency_alerts");
+          const data = await response.json();
+
+          const emergencyAlertsContent = document.getElementById(
+            "emergency-alerts-content"
+          );
+          emergencyAlertsContent.innerHTML = ""; // Clear previous content
+
+          data.forEach((alert) => {
+            const alertItem = document.createElement("div");
+            alertItem.classList.add("alert-item");
+            alertItem.innerHTML = `
+          <h3>${alert.date}</h3>
+          <p>${alert.message}</p>
+        `;
+            emergencyAlertsContent.appendChild(alertItem);
+          });
+        } catch (error) {
+          console.error("Error fetching emergency alerts:", error);
+        }
+      }
+
+      const personalInfoBtn = document.getElementById("personal-info-btn");
+      const personalInfoPopup = document.getElementById("personal-info-popup");
+
+      personalInfoBtn.addEventListener("click", () => {
+        personalInfoPopup.classList.add("show"); // Add 'show' class to display pop-up
+      });
+      const userEmail = localStorage.getItem("loggedInUser");
+      async function fetchUserInfo() {
+        try {
+          const response = await fetch(`/user/info?email=${userEmail}`); // Replace with your user info endpoint
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch user info");
+          }
+
+          const userData = await response.json();
+          document.getElementById("user-name").textContent = userData.name;
+          document.getElementById("user-email").textContent = userData.email;
+          document.getElementById("user-phone").textContent =
+            userData.phone || "Not Provided"; // Handle optional phone number
+          document.getElementById("user-address").textContent =
+            userData.address;
+        } catch (error) {
+          console.error("Error fetching user info:", error);
+          // Handle errors gracefully (e.g., display an error message)
+        }
+      }
+
+      // Call fetchUserInfo after successful login (replace logic with your implementation)
+      if (userEmail) {
+        // Replace with your login state check
+        fetchUserInfo();
+      }
+
+      const closePopupBtn = document.getElementById("close-popup");
+
+      closePopupBtn.addEventListener("click", () => {
+        personalInfoPopup.classList.remove("show"); // Remove 'show' class to hide pop-up
+      });
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        await loadEmergencyAlerts();
+        await loadUpdates();
+        await loadCalendar();
+      });
+    </script>
   </body>
 </html>

@@ -45,25 +45,57 @@
     </div>
 
     <script>
-      function validateLogin() {
+      async function validateLogin() {
+        event.preventDefault();
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
+        if (email.trim == "" || password.trim == "") {
+          alert("Enter the details !");
+          return;
+        }
+        const data = { email, password };
+        console.log(data);
 
-        // Simple validation, you can replace it with your own validation logic
-        if (email === "goodellysushrut@gmail.com" && password === "password") {
-          if (document.getElementById("keepLoggedIn").checked) {
-            localStorage.setItem("loggedInUser", email);
+        try {
+          const response = await fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+          // console.log(response.data);
+          if (response.ok) {
+            if (document.getElementById("keepLoggedIn").checked) {
+              localStorage.setItem("loggedInUser", email);
+            } else {
+              localStorage.removeItem("loggedInUser");
+            }
+            // Redirect to home.html
+            window.location.href = "home.html";
           } else {
-            localStorage.removeItem("loggedInUser");
+            alert("Invalid email or password!");
           }
-          // Redirect to index3.html
-          window.location.href = "home.html";
-          return false; // Prevent form submission
-        } else {
-          alert("Invalid email or password!");
-          return false; // Prevent form submission
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred while logging in. Please try again.");
         }
       }
+      //   // Simple validation, you can replace it with your own validation logic
+      //   if (await fetch("/login")) {
+      //     if (document.getElementById("keepLoggedIn").checked) {
+      //       localStorage.setItem("loggedInUser", email);
+      //     } else {
+      //       localStorage.removeItem("loggedInUser");
+      //     }
+      //     // Redirect to index3.html
+      //     window.location.href = "home.html";
+      //     return false; // Prevent form submission
+      //   } else {
+      //     alert("Invalid email or password!");
+      //     return false; // Prevent form submission
+      //   }
+      // }
     </script>
   </body>
 </html>

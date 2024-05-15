@@ -1,0 +1,35 @@
+/* Add this CSS to your home.css file */
+
+/* Updates Section */
+#updates {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+  }
+  
+  #updates h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .update-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .update-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .update-item p {
+    font-size: 18px;
+    color: #666;
+  }
+  html {
+    scroll-behavior: smooth;
+  }

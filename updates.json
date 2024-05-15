@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "date": "2024-05-20",
+    "title": "Community Meeting",
+    "description": "There will be a community meeting held on May 20th, 2024 at 6:00 PM in the clubhouse. All residents are encouraged to attend."
+  },
+  {
+    "id": 2,
+    "date": "2024-05-25",
+    "title": "Garbage Collection Schedule Change",
+    "description": "Starting May 25th, 2024, the garbage collection schedule will change to every Monday and Thursday. Please take note of the new schedule."
+  },
+  {
+    "id": 3,
+    "date": "2024-06-01",
+    "title": "Pool Maintenance",
+    "description": "The community pool will be closed for maintenance from June 1st to June 5th, 2024. We apologize for any inconvenience caused."
+  }
+]

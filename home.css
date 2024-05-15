@@ -278,3 +278,21 @@ footer p {
 .back-to-top:hover {
   transform: translateY(-3px);
 }
+
+
+
+.popup {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.popup.show {
+  display: block; /* Display pop-up on button click */
+}
